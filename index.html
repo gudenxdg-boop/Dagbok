@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dagbok – kodminne</title>
+  <meta name="description" content="En liten digital dagbok som sparar per dag. Ett kodminne." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="top">
+      <div>
+        <h1>Dagbok</h1>
+        <p class="sub">Ett litet kodminne. Öppna ibland. Sparar per dag.</p>
+      </div>
+      <div class="dateBox">
+        <div class="dateLabel">Idag</div>
+        <div id="todayDate" class="dateValue">—</div>
+      </div>
+    </header>
+
+    <section class="card">
+      <div class="row">
+        <div class="col">
+          <h2>Humör</h2>
+          <p class="muted">Dra reglaget och spara. Det räcker.</p>
+        </div>
+        <div class="pill" id="moodPill">—</div>
+      </div>
+
+      <div class="sliderRow">
+        <input id="mood" type="range" min="0" max="100" value="50" />
+        <div class="sliderMeta">
+          <span>0</span>
+          <span id="moodValue">50</span>
+          <span>100</span>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="row">
+        <div class="col">
+          <h2>Tanke</h2>
+          <p class="muted">Slumpa fram en tanke eller skriv en egen.</p>
+        </div>
+        <div class="btnRow">
+          <button id="newThought" class="btn ghost" type="button">Ny tanke</button>
+          <button id="save" class="btn" type="button">Spara idag</button>
+        </div>
+      </div>
+
+      <textarea id="thought" rows="5" placeholder="Skriv en egen tanke här…"></textarea>
+
+      <div class="statusRow">
+        <div id="status" class="status">Inte sparad ännu.</div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <div class="row">
+          <div class="col">
+            <h2>Historik</h2>
+            <p class="muted">Senaste sparade dagar.</p>
+          </div>
+          <button id="clearToday" class="btn ghost" type="button">Rensa idag</button>
+        </div>
+        <div id="history" class="history"></div>
+      </div>
+
+      <div class="card">
+        <h2>Backup</h2>
+        <p class="muted">Exportera/importera om du vill flytta minnet.</p>
+        <div class="btnRow">
+          <button id="export" class="btn ghost" type="button">Exportera JSON</button>
+          <label class="btn ghost fileBtn">
+            Importera JSON
+            <input id="import" type="file" accept="application/json" />
+          </label>
+        </div>
+        <pre id="exportBox" class="exportBox" aria-live="polite"></pre>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <span>Lokalt på din dator (localStorage).</span>
+      <span>Version: <b>v0.1</b></span>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
